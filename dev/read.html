@@ -1,0 +1,17 @@
+<html>
+<head>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+</head>
+<body>
+<script>
+        var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
+        var sessionRef = myDataRef.child("057d-fdjd1");
+        sessionRef.on("value", function(location) {
+            var coordinates = location.val();
+            var lat = coordinates.coordinates.lat;
+            var long = coordinates.coordinates.long;
+            console.log("Location: " + lat + ", " + long);
+        });
+    </script>
+</body>
+</html>

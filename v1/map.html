@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+        #map {
+        height: 100%;
+        }
+    </style>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    function initMap() {
+
+        var firstPosition = true;
+        var defaultZoom = 2;
+        var defaultLocation = {lat: 0, lng: 0};
+        var sessionId = location.search.split('session=')[1]
+        alert(sessionId);
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: defaultZoom,
+            center: defaultLocation
+        });
+
+        var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
+        var sessionRef = myDataRef.child(sessionId);
+        var marker;
+        sessionRef.on("value", function(location) {
+            var coordinates = location.val();
+            var markerLat = coordinates.coordinates.lat;
+            var makerLng = coordinates.coordinates.long;
+            var markerPosition = {lat: markerLat, lng: makerLng};
+            if(marker) {
+                marker.setMap(null);
+            }
+            marker = new google.maps.Marker({
+                position: markerPosition,
+                map: map,
+                title: 'Hello World!'
+            });
+            map.panTo(markerPosition);
+            if(firstPosition == true) {
+                firstPosition = false;
+                map.setZoom(18);
+            }
+        });
+    }
+    </script>
+    <script
+        async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLDWJwEdlBy2TGsObjVjJTPSDVQyeSwI&signed_in=true&callback=initMap">
+    </script>
+</body>
+</html>

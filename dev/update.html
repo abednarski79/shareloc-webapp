@@ -1,0 +1,18 @@
+<html>
+<head>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+</head>
+<body>
+<script>
+        var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
+        var sessionRef = myDataRef.child("057d-fdjd2");
+        randomLat = 53.349 + (Math.random() / 2500);
+        randomLong = -6.260 + (Math.random() / 2500);
+        sessionRef.set({
+            "coordinates": {
+            "lat": randomLat,
+            "long": randomLong}
+        });
+    </script>
+</body>
+</html>

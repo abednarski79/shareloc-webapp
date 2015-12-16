@@ -24,8 +24,7 @@
         var firstPosition = true;
         var defaultZoom = 2;
         var defaultLocation = {lat: 0, lng: 0};
-        var sessionId = location.search.split('session=')[1]
-        alert(sessionId);
+        var sessionId = location.search.split('session=')[1];
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: defaultZoom,
             center: defaultLocation

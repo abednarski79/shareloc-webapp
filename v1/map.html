@@ -37,7 +37,7 @@
         sessionRef.on("value", function(location) {
             var coordinates = location.val();
             var markerLat = coordinates.coordinates.latitude;
-            var makerLng = coordinates.coordinates.longtitude;
+            var makerLng = coordinates.coordinates.longitude;
             var markerPosition = {lat: markerLat, lng: makerLng};
             if(marker) {
                 marker.setMap(null);

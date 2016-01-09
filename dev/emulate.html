@@ -14,44 +14,14 @@
     <button onclick="upateDatabaseWithLocation(8,8)">Location 8</button>
     <button onclick="upateDatabaseWithLocation(9,9)">Location 9</button>
     <button onclick="upateDatabaseWithLocation(10,10)">Location 10</button>
-<script>
-    function upateDatabaseWithLocation(markerLat,makerLng) {
-        var sessionId = "f231eca8-9ed0-4f0b-9126-b0448d0583c7";
-        var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
-        var sessionRef = myDataRef.child(sessionId);
-        var location = {lat: markerLat, lng: makerLng};
-    }
-    function initMap() {
-
-        var firstPosition = true;
-        var defaultZoom = 2;
-        var defaultLocation = {lat: 0, lng: 0};
-        var sessionId = location.search.split('session=')[1]
-        var location = {lat: markerLat, lng: makerLng};
-        sessionRef.on("value", function(location) {
-            var coordinates = location.val();
-            var markerLat = coordinates.coordinates.latitude;
-            var makerLng = coordinates.coordinates.longitude;
-            var markerPosition = {lat: markerLat, lng: makerLng};
-            if(marker) {
-                marker.setMap(null);
-            }
-            marker = new google.maps.Marker({
-                position: markerPosition,
-                map: map,
-                title: 'Hello World!'
-            });
-            map.panTo(markerPosition);
-            if(firstPosition == true) {
-                firstPosition = false;
-                map.setZoom(18);
-            }
-        });
-    }
-    </script>
-    <script
-        async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLDWJwEdlBy2TGsObjVjJTPSDVQyeSwI&signed_in=true&callback=initMap">
+    <script>
+        function upateDatabaseWithLocation(markerLat,makerLng) {
+            var sessionId = "f231eca8-9ed0-4f0b-9126-b0448d0583c7";
+            var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
+            var sessionRef = myDataRef.child(sessionId);
+            var location = {lat: markerLat, lng: makerLng};
+            myDataRef.child(sessionId).child("coordinates").set(location);
+        }
     </script>
 </body>
 </html>

@@ -7,6 +7,7 @@
     <button onclick="main()">Emulate</button>
     <script>
         function upateDatabaseWithLocation(markerLat,makerLng) {
+            sleep(1000);
             var sessionId = "f231eca8-9ed0-4f0b-9126-b0448d0583c7";
             var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
             var sessionRef = myDataRef.child(sessionId);
@@ -18,9 +19,16 @@
             while (new Date().getTime() < start + delay);
         }
         function main() {
-            upateDatabaseWithLocation(1,1);
-            sleep(5000);
-            upateDatabaseWithLocation(4,4);
+            upateDatabaseWithLocation(53.349805,-6.260310);
+            upateDatabaseWithLocation(53.349634,-6.260211);
+            upateDatabaseWithLocation(53.349378,-6.260126);
+            upateDatabaseWithLocation(53.349070,-6.260018);
+            upateDatabaseWithLocation(53.348916,-6.259283);
+            upateDatabaseWithLocation(53.349031,-6.258656);
+            upateDatabaseWithLocation(53.349160,-6.257781);
+            upateDatabaseWithLocation(53.348993,-6.257733);
+            upateDatabaseWithLocation(53.348740,-6.257642);
+            upateDatabaseWithLocation(53.348542,-6.257567);
         }
     </script>
 </body>

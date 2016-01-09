@@ -4,32 +4,30 @@
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 </head>
 <body>
-    <button onclick="upateDatabaseWithLocation()">Location 1</button>
-    <button onclick="upateDatabaseWithLocation()">Location 2</button>
-    <button onclick="upateDatabaseWithLocation()">Location 3</button>
-    <button onclick="upateDatabaseWithLocation()">Location 4</button>
-    <button onclick="upateDatabaseWithLocation()">Location 5</button>
-    <button onclick="upateDatabaseWithLocation()">Location 6</button>
-    <button onclick="upateDatabaseWithLocation()">Location 7</button>
-    <button onclick="upateDatabaseWithLocation()">Location 8</button>
-    <button onclick="upateDatabaseWithLocation()">Location 9</button>
-    <button onclick="upateDatabaseWithLocation()">Location 10</button>
+    <button onclick="upateDatabaseWithLocation(1,1)">Location 1</button>
+    <button onclick="upateDatabaseWithLocation(2,2)">Location 2</button>
+    <button onclick="upateDatabaseWithLocation(3,3)">Location 3</button>
+    <button onclick="upateDatabaseWithLocation(4,4)">Location 4</button>
+    <button onclick="upateDatabaseWithLocation(5,5)">Location 5</button>
+    <button onclick="upateDatabaseWithLocation(6,6)">Location 6</button>
+    <button onclick="upateDatabaseWithLocation(7,7)">Location 7</button>
+    <button onclick="upateDatabaseWithLocation(8,8)">Location 8</button>
+    <button onclick="upateDatabaseWithLocation(9,9)">Location 9</button>
+    <button onclick="upateDatabaseWithLocation(10,10)">Location 10</button>
 <script>
+    function upateDatabaseWithLocation(markerLat,makerLng) {
+        var sessionId = "f231eca8-9ed0-4f0b-9126-b0448d0583c7";
+        var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
+        var sessionRef = myDataRef.child(sessionId);
+        var location = {lat: markerLat, lng: makerLng};
+    }
     function initMap() {
 
         var firstPosition = true;
         var defaultZoom = 2;
         var defaultLocation = {lat: 0, lng: 0};
         var sessionId = location.search.split('session=')[1]
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: defaultZoom,
-            center: defaultLocation
-        });
-
-        var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
-        var sessionRef = myDataRef.child(sessionId);
-        var marker;
+        var location = {lat: markerLat, lng: makerLng};
         sessionRef.on("value", function(location) {
             var coordinates = location.val();
             var markerLat = coordinates.coordinates.latitude;

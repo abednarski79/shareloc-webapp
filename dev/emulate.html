@@ -14,7 +14,7 @@
             var sessionId = "f231eca8-9ed0-4f0b-9126-b0448d0583c7";
             var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
             var sessionRef = myDataRef.child(sessionId);
-            var location = {lat: markerLat, lng: makerLng};
+            var location = {latitude: markerLat, longitude: makerLng};
             myDataRef.child(sessionId).child("coordinates").set(location);
         }
         function main() {

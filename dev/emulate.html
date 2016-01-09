@@ -13,9 +13,14 @@
             var location = {lat: markerLat, lng: makerLng};
             myDataRef.child(sessionId).child("coordinates").set(location);
         }
+        function sleep(delay) {
+            var start = new Date().getTime();
+            while (new Date().getTime() < start + delay);
+        }
         function main() {
-            setTimeout(upateDatabaseWithLocation(1,1), 2000);
-            setTimeout(upateDatabaseWithLocation(4,4), 6000);
+            upateDatabaseWithLocation(1,1);
+            sleep(5000);
+            upateDatabaseWithLocation(4,4);
         }
     </script>
 </body>

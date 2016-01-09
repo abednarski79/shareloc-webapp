@@ -9,6 +9,11 @@
     <button onclick="upateDatabaseWithLocation(53.349378,-6.260126)">Button</button>
     <button onclick="upateDatabaseWithLocation(53.349070,-6.260018)">Button</button>
     <button onclick="upateDatabaseWithLocation(53.348916,-6.259283)">Button</button>
+   <button onclick="upateDatabaseWithLocation(53.349031,-6.258656)">Button</button>
+   <button onclick="upateDatabaseWithLocation(53.349160,-6.257781)">Button</button>
+    <button onclick="upateDatabaseWithLocation(53.348993,-6.257733)">Button</button>
+    <button onclick="upateDatabaseWithLocation(53.348740,-6.257642)">Button</button>
+    <button onclick="upateDatabaseWithLocation(53.348542,-6.257567)">Button</button>
     <script>
         function upateDatabaseWithLocation(markerLat,makerLng) {
             var sessionId = "f231eca8-9ed0-4f0b-9126-b0448d0583c7";
@@ -18,16 +23,8 @@
             myDataRef.child(sessionId).child("coordinates").set(location);
         }
         function main() {
-            upateDatabaseWithLocation(53.349805,-6.260310);
-            upateDatabaseWithLocation(53.349634,-6.260211);
-            upateDatabaseWithLocation(53.349378,-6.260126);
-            upateDatabaseWithLocation(53.349070,-6.260018);
-            upateDatabaseWithLocation(53.348916,-6.259283);
-            upateDatabaseWithLocation(53.349031,-6.258656);
-            upateDatabaseWithLocation(53.349160,-6.257781);
-            upateDatabaseWithLocation(53.348993,-6.257733);
-            upateDatabaseWithLocation(53.348740,-6.257642);
-            upateDatabaseWithLocation(53.348542,-6.257567);
+            
+
         }
     </script>
 </body>

@@ -4,19 +4,18 @@
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 </head>
 <body>
-    <button onclick="main()">Emulate</button>
+    <button onclick="upateDatabaseWithLocation(53.349805,-6.260310)">Button</button>
+    <button onclick="upateDatabaseWithLocation(53.349634,-6.260211)">Button</button>
+    <button onclick="upateDatabaseWithLocation(53.349378,-6.260126)">Button</button>
+    <button onclick="upateDatabaseWithLocation(53.349070,-6.260018)">Button</button>
+    <button onclick="upateDatabaseWithLocation(53.348916,-6.259283)">Button</button>
     <script>
         function upateDatabaseWithLocation(markerLat,makerLng) {
-            sleep(1000);
             var sessionId = "f231eca8-9ed0-4f0b-9126-b0448d0583c7";
             var myDataRef = new Firebase('https://blazing-heat-5307.firebaseio.com/sessions');
             var sessionRef = myDataRef.child(sessionId);
             var location = {lat: markerLat, lng: makerLng};
             myDataRef.child(sessionId).child("coordinates").set(location);
-        }
-        function sleep(delay) {
-            var start = new Date().getTime();
-            while (new Date().getTime() < start + delay);
         }
         function main() {
             upateDatabaseWithLocation(53.349805,-6.260310);
